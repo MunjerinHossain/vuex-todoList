@@ -61,9 +61,6 @@ const store = new Vuex.Store({
         clearCompleted(state) {
             state.todos = state.todos.filter(todo => !todo.completed)
         },
-        idIncrement(state, id) {
-            
-        }
     },
     actions: {
 

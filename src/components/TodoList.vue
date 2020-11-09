@@ -62,13 +62,12 @@ export default {
     todosFiltered() {
       return this.$store.getters.todosFiltered;
     },
-    // remaining(state) {
-    //   return this.$store.getters.remaining;
-    // },
   },
   methods: {
     addTodo() {
-      console.log(this.idForTodo, "hjdf");
+
+      console.log("id increment:", this.idForTodo);
+
       if (this.newTodo.trim().length == 0) {
         return;
       }
