@@ -3,15 +3,14 @@
     <div class="todo-item-left">
         <input type="checkbox" v-model="completed" @change="doneEdit">
         <div v-if="!editing" @dblclick="editTodo" class="todo-item-label" :class="{ completed : completed }">{{ title }}</div>
-        <input v-else class="todo-item-edit" type="text" 
-        v-model="title" @blur="doneEdit" @keyup.enter="doneEdit" @keyup.esc="cancelEdit" v-focus>
+        <input v-else class="todo-item-edit" type="text" v-model="title" @blur="doneEdit" @keyup.enter="doneEdit" @keyup.esc="cancelEdit" v-focus>
     </div>
     <div>
       <span class="remove-item" @click="removeTodo(todo.id)">
         &times;
       </span>
     </div>
-  </div> <!-- end todo-item -->
+  </div>
 </template>
 
 <script>
@@ -35,12 +34,6 @@ export default {
       'editing': this.todo.editing,
       'beforeEditCache': '',
     }
-  },
-  created() {
-    eventBus.$on('pluralize', this.handlePluralize)
-  },
-  beforeDestroy() {
-    eventBus.$off('pluralize', this.handlePluralize)
   },
   watch: {
     checkAll() {

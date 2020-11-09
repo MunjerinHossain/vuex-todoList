@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1 class="title"><i>todos</i></h1>
     <input
       type="text"
       class="todo-input"
@@ -23,10 +22,6 @@
     </transition-group>
 
     <div class="extra-container">
-      <todo-check-all></todo-check-all>
-    </div>
-
-    <div class="extra-container">
       <todo-items-remaining></todo-items-remaining>
       <todo-filtered></todo-filtered>
 
@@ -42,7 +37,6 @@
 <script>
 import TodoItem from "./TodoItem";
 import TodoItemsRemaining from "./TodoItemsRemaining";
-import TodoCheckAll from "./TodoCheckAll";
 import TodoFiltered from "./TodoFiltered";
 import TodoClearCompleted from "./TodoClearCompleted";
 import { mapActions } from "vuex";
@@ -52,14 +46,13 @@ export default {
   components: {
     TodoItem,
     TodoItemsRemaining,
-    TodoCheckAll,
     TodoFiltered,
     TodoClearCompleted,
   },
   data() {
     return {
       newTodo: "",
-      idForTodo: 3,
+      idForTodo: 1,
     };
   },
   computed: {
@@ -75,6 +68,7 @@ export default {
   },
   methods: {
     addTodo() {
+      console.log(this.idForTodo, "hjdf");
       if (this.newTodo.trim().length == 0) {
         return;
       }
@@ -85,7 +79,7 @@ export default {
       });
 
       this.newTodo = "";
-      this.idForTodo++;
+      this.idForTodo = this.idForTodo + 1;
     },
   },
 };
@@ -94,10 +88,6 @@ export default {
 <style lang="scss">
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css");
 
-.title {
-  align-items: center;
-  left: 50px;
-}
 
 .todo-input {
   width: 100%;

@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    
+    <h1 class="title"><i>todos</i></h1>
     <todo-list></todo-list>
   </div>
 </template>
@@ -19,6 +19,10 @@ export default {
 <style>
 * {
   box-sizing: border-box;
+}
+.title {
+  align-items: center;
+  right: 50px;
 }
 .container {
   max-width: 600px;

@@ -7,7 +7,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         filter: 'all',
-        todos: [{}]
+        todos: []
     },
     getters: {
         remaining(state) {
@@ -61,6 +61,9 @@ const store = new Vuex.Store({
         clearCompleted(state) {
             state.todos = state.todos.filter(todo => !todo.completed)
         },
+        idIncrement(state, id) {
+            
+        }
     },
     actions: {
 
@@ -68,7 +71,7 @@ const store = new Vuex.Store({
             setTimeout(() => {
                 context.commit('addTodo', todo)
             }, 100)
-            console.log('todo', todos);
+            console.log('todo', this.todo);
         },
         updateTodo(context, todo) {
             setTimeout(() => {
